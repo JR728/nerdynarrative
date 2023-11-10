@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS nerdy_db;
+
+CREATE DATABASE nerdy_db;

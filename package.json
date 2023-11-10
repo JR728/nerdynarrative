@@ -4,7 +4,8 @@
   "description": "Tech blog",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/index.js"
   },
   "author": "Justin",
   "license": "MIT",

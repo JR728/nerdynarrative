@@ -1,0 +1,13 @@
+[
+    {
+      "title": "Sample Blog Post 1",
+      "post_text": "This is the content of the first blog post.",
+      "user_id": 1
+    },
+    {
+      "title": "Sample Blog Post 2",
+      "post_text": "This is the content of the second blog post.",
+      "user_id": 2
+    }
+
+  ]
