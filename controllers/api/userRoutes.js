@@ -28,6 +28,11 @@ router.post('/signin', async (req, res) => {
 // Route to handle user signup. Posts new username, password to database:
 router.post('/signup', async (req, res) => {
   try {
+    // Check if the user is already signed in
+    if (req.session.signedIn) {
+      return res.status(400).json({ message: 'You are already signed in.' });
+    }
+
     const { username, password } = req.body;
 
     if (!username || !password) {
@@ -65,4 +70,3 @@ router.post('/signout', (req, res) => {
 });
 
 module.exports = router;
-//pull request failed

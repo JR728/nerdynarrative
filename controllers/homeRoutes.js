@@ -25,15 +25,12 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Example of a route that requires authentication (similar to dashboard)
-router.get('/authenticated-route', withAuth, async (req, res) => {
-  try {
-    // Your logic for an authenticated route goes here
-    res.render('authenticated', { signedIn: req.session.signedIn });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+router.get('/signup', (req, res) => {
+    // If the user goes to the '/signin' route but is already signed in, redirect to the homepage
+    if (req.session.loggedIn) {
+      return res.redirect('/');
+    }
+    res.render('signup');
+  });
 
 module.exports = router;

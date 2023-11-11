@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { BlogPost, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // Route searches BlogPost and User models to get posts for homepage feed:
 router.get('/', async (req, res) => {
@@ -23,10 +24,11 @@ router.get('/', async (req, res) => {
 });
 
 // Route creates a new post for the BlogPost model:
-router.post('/create', async (req, res) => {
+router.get('/create', withAuth, async (req, res) => {
   try {
     const { title, post_text } = req.body;
 
+    // Assuming that the session contains userId
     const dbBlogPostData = await BlogPost.create({
       title,
       post_text,

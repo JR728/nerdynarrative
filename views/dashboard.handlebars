@@ -1,0 +1,15 @@
+
+
+<section>
+  <h1>Dashboard</h1>
+  <!-- Display user's blog posts -->
+  {{#each posts}}
+    <div>
+      <h2>{{title}}</h2>
+      <p>{{created_at}}</p>
+      <p>{{post_text}}</p>
+    </div>
+  {{/each}}
+</section>
+
+
