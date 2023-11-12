@@ -1,0 +1,17 @@
+
+
+<section>
+  <h1>Welcome to Your Blog</h1>
+  <!-- Display a list of blog posts -->
+  {{#each blogPosts}}
+    <div>
+      <h2>{{title}}</h2>
+      <p>{{created_at}}</p>
+      <p>{{post_text}}</p>
+      <!-- Add a link to view the full post -->
+      <a href="/post/{{id}}">Read more</a>
+    </div>
+  {{/each}}
+</section>
+
+

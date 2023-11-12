@@ -1,0 +1,27 @@
+
+
+<section>
+  <article>
+    <h1>{{blogPost.title}}</h1>
+    <p>{{blogPost.created_at}}</p>
+    <p>{{blogPost.post_text}}</p>
+  </article>
+
+  <!-- Display comments if applicable -->
+  {{#if comments.length}}
+    <h2>Comments</h2>
+    {{#each comments}}
+      <p>{{this.text}} - {{this.username}}</p>
+    {{/each}}
+  {{else}}
+    <p>No comments yet.</p>
+  {{/if}}
+
+  <!-- Add a form for adding a comment -->
+  <form action="/blogpost/{{blogPost.id}}/comment" method="POST">
+    <label for="comment">Add a comment:</label>
+    <input type="text" id="comment" name="comment" required>
+    <button type="submit">Submit Comment</button>
+  </form>
+</section>
+
