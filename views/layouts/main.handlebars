@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'wasm-unsafe-eval' 'inline-speculation-rules' https://js.stripe.com/v3;">
   <title>Your Blog App</title>
-  <!-- Add your stylesheets or other head content here -->
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
@@ -15,6 +16,7 @@
 
   {{> footer}}
   <!-- Add your scripts or other body content here -->
+  <script src="/js/signout.js"></script>
 </body>
 
 </html>
