@@ -3,15 +3,16 @@
 <section>
   <article>
     <h1>{{blogPost.title}}</h1>
+    <p>Author: {{blogPost.user.username}}</p>
     <p>{{blogPost.created_at}}</p>
     <p>{{blogPost.post_text}}</p>
   </article>
 
   <!-- Display comments if applicable -->
-  {{#if comments.length}}
+  {{#if blogPost.postcomments.length}}
     <h2>Comments</h2>
-    {{#each comments}}
-      <p>{{this.text}} - {{this.username}}</p>
+    {{#each blogPost.postcomments}}
+      <p>{{comment_text}} - {{user.username}}</p>
     {{/each}}
   {{else}}
     <p>No comments yet.</p>

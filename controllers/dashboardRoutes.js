@@ -45,7 +45,7 @@ router.get('/create', withAuth, async (req, res) => {
 
     const posts = dbPostData.map(post => post.get({ plain: true }));
 
-    res.render('create-post', { posts, signedIn: true });
+    res.render('create-blogpost', { posts, signedIn: true });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

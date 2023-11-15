@@ -15,7 +15,20 @@ router.get('/', async (req, res) => {
         }
       ]
     });
+    console.log(dbBlogPostData);
 
+    const blogPosts = dbBlogPostData.map((post) => {
+        return {
+          id: post.id,
+          title: post.title,
+          created_at: post.created_at,
+          post_text: post.post_text,
+          // Access username directly from the User model
+          username: post.User.username
+        };
+    });
+
+    res.render('homepage', { blogPosts, signedIn: req.session.signedIn });
     res.json(dbBlogPostData);
   } catch (err) {
     console.log(err);
@@ -24,7 +37,7 @@ router.get('/', async (req, res) => {
 });
 
 // Route creates a new post for the BlogPost model:
-router.get('/create', withAuth, async (req, res) => {
+router.post('/create', withAuth, async (req, res) => {
   try {
     const { title, post_text } = req.body;
 
