@@ -9,8 +9,13 @@
       <p>Author: {{user.username}}</p>
       <p>{{created_at}}</p>
       <p>{{post_text}}</p>
+      <a href="/post/{{id}}">Comments</a>
+      <button class="edit-post-btn" data-post-id="{{id}}">Edit Post</button>
+      <button class="delete-post-btn" data-post-id="{{id}}">Delete Post</button>
     </div>
   {{/each}}
 </section>
+<script src="/js/deletepost.js"></script>
+<script src="/js/editBlogPost.js"></script>
 
 
