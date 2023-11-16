@@ -1,0 +1,172 @@
+/* public/css/styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    margin-bottom: 60px;
+}
+  
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+  
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+  
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+  
+nav a {
+    text-decoration: none; /* Remove underline */
+    color: white;
+    font-weight: bold; /* Bold letters */
+}
+  
+div {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: darkgreen; /* Dark green color */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white; /* Text color for posts */
+    margin-bottom: 20px; /* Margin between posts */
+}
+
+section {
+    max-width: 800px; /* Adjust the maximum width as needed */
+    margin: auto; /* Center the section horizontally */
+    padding: 20px; /* Add padding for spacing */
+}
+
+section:first-child {
+    margin-top: 0; /* No top margin for the first post */
+}
+
+.auth-section {
+    display: flex;
+    justify-content: space-around;
+}
+
+article {
+    background-color: darkgreen;
+    padding: 15px; /* Add padding for spacing within the blog post */
+    border-radius: 10px; /* Add rounded corners */
+    margin-bottom: 20px; /* Add space between blog posts */
+    color: white;
+}
+
+.signup-form-container,
+.signin-form-container {
+    background-color: darkgreen;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+label {
+    display: block; /* Place each label on a new line */
+    margin-bottom: 5px; /* Adjust spacing between labels */
+}
+
+section div a {
+    color: #007bff; /* Set link color to blue */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Make the link a block element for better spacing */
+    margin-top: 10px; /* Add some space above the link */
+    margin-bottom: 10px;
+}
+
+/* Style for text input and password input */
+input {
+    width: 100%; /* Make the input elements take up the full width */
+    box-sizing: border-box;
+    margin-bottom: 15px; /* Adjust spacing between input elements */
+}
+
+/* Style for buttons */
+button {
+    width: 100%; /* Make the button take up the full width */
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    color: darkgreen;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.create-post-section {
+    background-color: darkgreen;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    max-width: 600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+label {
+    display: block; /* Place each label on a new line */
+    margin-bottom: 5px; /* Adjust spacing between labels */
+}
+
+input,
+textarea {
+    width: 100%; /* Make the input elements take up the full width */
+    box-sizing: border-box;
+    margin-bottom: 15px; /* Adjust spacing between input elements */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Adjust spacing between form groups */
+}
+
+form {
+    background-color: darkgreen;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    max-width: 600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.edit-post-section {
+    background-color: darkgreen;
+    border-radius: 10px;
+    padding: 20px;
+    color: white; /* Set text color to white or a contrasting color */
+    max-width: 600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+  
+footer {
+    background-color: #333; /* Adjust the background color of your footer */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+  

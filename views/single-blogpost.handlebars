@@ -9,15 +9,16 @@
   </article>
 
   <!-- Display comments if applicable -->
-  {{#if blogPost.postcomments.length}}
-    <h2>Comments</h2>
-    {{#each blogPost.postcomments}}
-      <p>{{comment_text}} - {{user.username}}</p>
-    {{/each}}
-  {{else}}
-    <p>No comments yet.</p>
-  {{/if}}
-
+  <div>
+    {{#if blogPost.postcomments.length}}
+        <h2>Comments</h2>
+        {{#each blogPost.postcomments}}
+            <p>{{comment_text}} - {{user.username}}</p>
+        {{/each}}
+    {{else}}
+        <p>No comments yet.</p>
+    {{/if}}
+  </div>
   <!-- Add a form for adding a comment -->
   <form action="/blogpost/{{blogPost.id}}/comment" method="POST">
     <label for="comment">Add a comment:</label>

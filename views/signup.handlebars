@@ -1,26 +1,30 @@
+<!-- signup.handlebars -->
+<section class="auth-section">
+    <div class="signup-form-container">
+        <h1>Sign Up</h1>
+        <!-- Form for user registration -->
+        <form action="/api/users/signup" method="POST" class="signup-form">
+            <label for="username-signup">Username:</label>
+            <input type="text" id="username-signup" name="username" required>
+            
+            <label for="password-signup">Password:</label>
+            <input type="password" id="password-signup" name="password" required>
 
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
 
-<section>
-  <h1>Sign Up</h1>
-  <!-- Add a form for user registration -->
-  <form action="/api/users/signup" method="POST" class="signup-form">
-    <label for="username">Username:</label>
-    <input type="text" id="username-signup" name="username" required>
-    
-    <label for="password">Password:</label>
-    <input type="password" id="password-signup" name="password" required>
+    <div class="signin-form-container">
+        <h1>Sign In</h1>
+        <!-- Form for user login -->
+        <form action="/api/users/signin" method="POST" class="signin-form">
+            <label for="username-signin">Username:</label>
+            <input type="text" id="username-signin" name="username" required>
+            
+            <label for="password-signin">Password:</label>
+            <input type="password" id="password-signin" name="password" required>
 
-    <button type="submit">Sign Up</button>
-  </form>
-
-  <!-- Add a form for user login -->
-  <form action="/api/users/signin" method="POST" class="signin-form">
-    <label for="username">Username:</label>
-    <input type="text" id="username-signin" name="username" required>
-    
-    <label for="password">Password:</label>
-    <input type="password" id="password-signin" name="password" required>
-
-    <button type="submit">Sign In</button>
-  </form>
+            <button type="submit">Sign In</button>
+        </form>
+    </div>
 </section>
