@@ -3,7 +3,7 @@
     <div class="signup-form-container">
         <h1>Sign Up</h1>
         <!-- Form for user registration -->
-        <form action="/api/users/signup" method="POST" class="signup-form">
+        <form id="signup-form" method="POST" class="signup-form">
             <label for="username-signup">Username:</label>
             <input type="text" id="username-signup" name="username" required>
             
@@ -17,7 +17,7 @@
     <div class="signin-form-container">
         <h1>Sign In</h1>
         <!-- Form for user login -->
-        <form action="/api/users/signin" method="POST" class="signin-form">
+        <form id="signin-form" method="POST" class="signin-form">
             <label for="username-signin">Username:</label>
             <input type="text" id="username-signin" name="username" required>
             
@@ -28,3 +28,5 @@
         </form>
     </div>
 </section>
+
+<script src="/js/signup.js"></script>

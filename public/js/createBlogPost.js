@@ -31,5 +31,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    document.querySelector('.new-post-form').addEventListener('submit', postFormHandler);
+    
 });
