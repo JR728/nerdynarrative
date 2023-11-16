@@ -1,30 +1,35 @@
+// public/js/createBlogPost.js
 document.addEventListener('DOMContentLoaded', () => {
-    // Your create blog post page JavaScript logic goes here
     console.log('Create Blog Post page loaded');
-  
-    // You can add event listeners, perform actions, etc.
+
     async function postFormHandler(event) {
-      event.preventDefault();
-  
-      const title = document.querySelector('#title').value.trim();
-      const postText = document.querySelector('#post_text').value.trim(); // Change to match the ID in your HTML
+        event.preventDefault();
 
-      console.log('Title:', title);
-      console.log('Post Text:', postText);
+        const title = document.querySelector('#title').value.trim();
+        const postText = document.querySelector('#post_text').value.trim();
 
-  
-      const response = await fetch('/api/blogposts/create', {
-        method: 'POST',
-        body: JSON.stringify({ title, post_text: postText }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-  
-      if (response.ok) {
-        document.location.replace('/dashboard');
-      } else {
-        alert(response.statusText);
-      }
+        console.log('Title:', title);
+        console.log('Post Text:', postText);
+
+        try {
+            const response = await fetch('/api/blogposts/create', {
+                method: 'POST',
+                body: JSON.stringify({ title, post_text: postText }),
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            if (response.ok) {
+                // Optionally handle a successful response here
+                console.log('Post created successfully');
+            } else {
+                // Optionally handle an unsuccessful response here
+                alert('Failed to create post');
+            }
+        } catch (error) {
+            console.error('Error during POST request:', error);
+            alert('An error occurred during the request.');
+        }
     }
-  
+
     document.querySelector('.new-post-form').addEventListener('submit', postFormHandler);
 });

@@ -1,3 +1,4 @@
+//controllers/dashboardRoutes.js
 const router = require('express').Router();
 const { BlogPost, User } = require('../models');
 const withAuth = require('../utils/auth');
@@ -27,7 +28,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-// Route lets the user create a new post:
+// Route lets the user go to create a new post page:
 router.get('/create', withAuth, async (req, res) => {
   try {
     const dbPostData = await BlogPost.findAll({

@@ -1,4 +1,4 @@
-//blogpostRoutes.js
+//controllers/api/blogpostRoutes.js
 const router = require('express').Router();
 const { BlogPost, User } = require('../../models');
 const withAuth = require('../../utils/auth');
@@ -39,22 +39,26 @@ router.get('/', async (req, res) => {
 
 // Route creates a new post for the BlogPost model:
 router.post('/create', withAuth, async (req, res) => {
-  try {
-    const { title, post_text } = req.body;
-
-    // Assuming that the session contains userId
-    const dbBlogPostData = await BlogPost.create({
-      title,
-      post_text,
-      user_id: req.session.userId
-    });
-
-    res.json(dbBlogPostData);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
+    try {
+        // Extracting title and post_text from the request body
+        const { title, post_text } = req.body;
+  
+        // Assuming that the session contains userId, create a new blog post associated with the user
+        await BlogPost.create({
+            title,
+            post_text,
+            user_id: req.session.userId
+        });
+  
+        // Redirect to /dashboard after creating a new post
+        res.redirect('/dashboard');
+    } catch (err) {
+        // Handle any errors that occur during the process
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
+  
 
 router.get('/:id/edit', withAuth, async (req, res) => {
     try {
