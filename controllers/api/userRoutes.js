@@ -1,15 +1,30 @@
+// controllers/api/userRoutes.js
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.post('/signin', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
+        if (req.session.signedIn) {
+            return res.status(400).json({ message: 'You are already signed in.' });
+        }
+
         const { username, password } = req.body;
 
-        const userData = await User.findOne({ where: { username } });
-
-        if (!userData || !userData.checkPassword(password)) {
-            return res.status(400).json({ message: 'Incorrect username or password' });
+        if (!username || !password) {
+            return res.status(400).json({ message: 'Please provide username and password' });
         }
+
+        // Validate password length
+        if (password.length < 8) {
+            return res.status(400).json({ message: 'Password must be at least 8 characters long.' });
+        }
+
+        const existingUser = await User.findOne({ where: { username } });
+        if (existingUser) {
+            return res.status(400).json({ message: 'User with this username already exists.' });
+        }
+
+        const userData = await User.create({ username, password });
 
         req.session.userId = userData.id;
         req.session.signedIn = true;
@@ -24,24 +39,15 @@ router.post('/signin', async (req, res) => {
     }
 });
 
-router.post('/signup', async (req, res) => {
+router.post('/signin', async (req, res) => {
     try {
-        if (req.session.signedIn) {
-            return res.status(400).json({ message: 'You are already signed in.' });
-        }
-
         const { username, password } = req.body;
 
-        if (!username || !password) {
-            return res.status(400).json({ message: 'Please provide username and password' });
-        }
+        const userData = await User.findOne({ where: { username } });
 
-        const existingUser = await User.findOne({ where: { username } });
-        if (existingUser) {
-            return res.status(400).json({ message: 'User with this username already exists.' });
+        if (!userData || !userData.checkPassword(password)) {
+            return res.status(400).json({ message: 'Incorrect username or password' });
         }
-
-        const userData = await User.create({ username, password });
 
         req.session.userId = userData.id;
         req.session.signedIn = true;
